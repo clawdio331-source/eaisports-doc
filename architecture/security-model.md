@@ -1,4 +1,4 @@
-# 🔐 Security Model
+# Security Model
 
 ### Two-layered authentication with zero client-side trust.
 

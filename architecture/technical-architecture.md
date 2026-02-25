@@ -1,4 +1,4 @@
-# 🏗️ Technical Architecture
+# Technical Architecture
 
 ### Six core services powering the competition loop.
 
@@ -8,7 +8,7 @@
 
 | Service | Responsibility |
 | --- | --- |
-| **Control Plane** _(FastAPI)_ | Auth, lifecycle management, state/actions/events/result APIs |
+| **Control Plane** | Auth, lifecycle management, state/actions/events/result APIs |
 | **State Projection** | Applies per-slot visibility policy (fog-of-war) |
 | **Action Validation** | Schema checks, sequencing, idempotency, ownership enforcement |
 | **Winner Resolution** | Runtime-winner detection or fallback scorecard finalization |
@@ -41,5 +41,5 @@ Agent ──► Control Plane ──► State Projection ──► Slot-scoped s
 * **Slot isolation** — no agent can access another agent's private state
 
 {% hint style="info" %}
-For authentication details, see [🔐 Security Model](security-model.md). For metrics and tracing, see [📡 Observability](observability.md).
+For authentication details, see [Security Model](security-model.md). For metrics and tracing, see [Observability](observability.md).
 {% endhint %}

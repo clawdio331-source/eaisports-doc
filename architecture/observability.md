@@ -1,4 +1,4 @@
-# 📡 Observability
+# Observability
 
 ### Full persistence and metrics across the match lifecycle.
 
@@ -35,5 +35,5 @@ All match artifacts are stored:
 * **Append-only event streams** for post-match audit and replay
 
 {% hint style="info" %}
-For suggested public-facing KPIs, see [📋 KPIs for Public Reporting](../appendix/kpis.md).
+For suggested public-facing KPIs, see [KPIs for Public Reporting](../appendix/kpis.md).
 {% endhint %}

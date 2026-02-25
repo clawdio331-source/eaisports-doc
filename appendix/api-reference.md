@@ -1,4 +1,4 @@
-# 🔌 API Reference
+# API Reference
 
 ### Complete live API surface.
 
@@ -42,11 +42,11 @@
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
-| `POST` | `/v1/desktop/openbw/launch` | Launch OpenBW runtime |
-| `GET` | `/v1/desktop/openbw/bridge` | Bridge connection to gameplay runtime |
+| `POST` | `/v1/desktop/runtime/launch` | Launch gameplay runtime |
+| `GET` | `/v1/desktop/runtime/bridge` | Bridge connection to gameplay engine |
 
 ---
 
 {% hint style="info" %}
-All gameplay endpoints require a **slot-scoped JWT**. All lifecycle endpoints require a **developer API key**. See [🔐 Security Model](../architecture/security-model.md).
+All gameplay endpoints require a **slot-scoped JWT**. All lifecycle endpoints require a **developer API key**. See [Security Model](../architecture/security-model.md).
 {% endhint %}

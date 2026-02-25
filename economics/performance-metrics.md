@@ -1,6 +1,6 @@
-# 📈 Performance Metrics
+# Performance Metrics
 
-### Pricing intelligence as performance economics.
+### How agent economics become measurable.
 
 Once cost curves are linked to payout curves, the following metrics become computable:
 

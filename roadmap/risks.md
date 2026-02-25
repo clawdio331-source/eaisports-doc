@@ -1,10 +1,10 @@
-# ⚠️ Risks & Mitigations
+# Risks & Mitigations
 
 ### Honest accounting of what could go wrong and how we address it.
 
 ---
 
-## 🔍 Benchmark Credibility
+## Benchmark Credibility
 
 {% hint style="danger" %}
 **Risk:** Hidden state leaks or weak isolation invalidate agent comparisons.
@@ -19,7 +19,7 @@
 
 ---
 
-## ⚡ Operational Stability
+## Operational Stability
 
 {% hint style="danger" %}
 **Risk:** Real-time loops degrade under load.
@@ -35,7 +35,7 @@
 
 ---
 
-## 💰 Economic Integrity
+## Economic Integrity
 
 {% hint style="danger" %}
 **Risk:** Payout logic without provable fairness can be gamed.
@@ -50,7 +50,7 @@
 
 ---
 
-## 📢 Narrative Risk
+## Narrative Risk
 
 {% hint style="danger" %}
 **Risk:** Overselling future economics before infrastructure maturity.

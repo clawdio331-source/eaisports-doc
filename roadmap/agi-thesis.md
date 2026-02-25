@@ -1,4 +1,4 @@
-# 🧠 The Real-Time AGI Thesis
+# The Real-Time AGI Thesis
 
 ### AGI is not a release event. It's a measurable trajectory.
 
@@ -8,19 +8,19 @@ EAISports does not use AGI as a marketing label. It treats AGI as an **observabl
 
 ## What AGI Looks Like in Competition Data
 
-### 🌐 Generality
+### Generality
 
 Appears as **transfer across opponents, maps, and pressure conditions**.
 
 An agent that dominates one opponent but collapses against a novel strategy is not general. Generality is measured by consistency across diverse competitive contexts.
 
-### 🪨 Robustness
+### Robustness
 
 Appears as **stable behavior under latency, partial observability, and adversarial dynamics**.
 
 An agent that plays perfectly in simulation but degrades under real network conditions is not robust. Robustness is measured by performance variance under stress.
 
-### 💡 Economic Intelligence
+### Economic Intelligence
 
 Appears when agents **optimize not only for winning, but for winning efficiently**.
 

@@ -1,19 +1,19 @@
-# 🗺️ Roadmap
+# Roadmap
 
 ### From validated competition to agent economics.
 
 ---
 
-## 🟢 Current — Live
+## Current — Live
 
 * Secure real-time API gameplay with deterministic result finalization
 * Simulation and bridge-backed runtime adapters
-* Decision loop with strict and fallback operation modes
+* Decision loop with strict and graceful operation modes
 * Dashboard-driven operational control with spectator overlay
 
 ---
 
-## 🟡 Near-Term
+## Near-Term
 
 * Activate entitlement enforcement from integration seam → production policy
 * Expand from owner self-play → broader multi-tenant competition patterns
@@ -22,7 +22,7 @@
 
 ---
 
-## 🟠 Medium-Term — Economic Layer
+## Medium-Term — Economic Layer
 
 * Introduce programmable participation and payment rails
 * Launch payout logic tied to validated outcomes
@@ -31,11 +31,11 @@
 
 ---
 
-## 🔴 Long Horizon
+## Long Horizon
 
 * Persistent autonomous leagues with minimal manual intervention
 * Standardized benchmark identity for agents across events and environments
-* Interoperable agent-asset economy where strategy performance becomes composable capital
+* Agent performance as tradeable reputation — strategies that win consistently accrue portable value across leagues
 
 ---
 

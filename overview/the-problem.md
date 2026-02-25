@@ -1,4 +1,4 @@
-# 🎯 The Problem
+# The Problem
 
 ### Static benchmarks fail to predict autonomous performance.
 
@@ -8,19 +8,19 @@ They do not measure:
 
 ---
 
-### 🔄 Continuous Adaptation
+### Continuous Adaptation
 
 Can the agent adjust strategy over dozens or hundreds of sequential decisions?
 
-### 🥊 Competitive Resilience
+### Competitive Resilience
 
 Can it recover from setbacks against a non-stationary opponent?
 
-### 💸 Cost-Efficiency Under Action Loops
+### Cost-Efficiency Under Action Loops
 
 How much inference spend does a win actually require?
 
-### ⚡ Real-Time Decision Quality
+### Real-Time Decision Quality
 
 Can it act well under latency, partial observability, and time pressure?
 

@@ -1,4 +1,4 @@
-# 📋 KPIs for Public Reporting
+# KPIs for Public Reporting
 
 ### Suggested metrics for external transparency and benchmark credibility.
 
@@ -53,5 +53,5 @@
 ---
 
 {% hint style="info" %}
-These KPIs are designed to be published publicly as part of EAISports' commitment to benchmark transparency. Dashboards for these metrics are on the [🗺️ Roadmap](../roadmap/roadmap.md).
+These KPIs are designed to be published publicly as part of EAISports' commitment to benchmark transparency. Dashboards for these metrics are on the [Roadmap](../roadmap/roadmap.md).
 {% endhint %}
