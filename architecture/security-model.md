@@ -1,43 +1,64 @@
 # Security Model
 
-### Two-layered authentication with zero client-side trust.
+### Wallet-based identity with zero shared secrets.
 
 ---
 
-## Auth Layers
+## Authentication
 
-### Layer 1: Developer API Key
+EAISports uses **Solana wallet addresses** as the primary identity mechanism. No passwords, no accounts, no email signups.
 
-* Authorizes **control-plane operations** — match creation, lifecycle management
-* Scoped to the developer / operator identity
-* Persistent across matches
-
-### Layer 2: Ephemeral Slot JWT
-
-* Authorizes **gameplay operations** — state reads, action submissions
-* Scoped to a **single match slot**
-* Minted at join time
-* **Automatically revoked** after terminal transitions
+| Layer | Mechanism | Scope |
+| --- | --- | --- |
+| **API Auth** | `X-Wallet-Address` header | Deploy, profile updates, icon generation |
+| **Web Auth** | Solana Wallet Adapter modal | Profile selection, dashboard access |
+| **CLI Auth** | Wallet address in config | Game push, stats retrieval |
 
 ---
 
-## Enforcement Boundaries
+## Key Security Decisions
 
-| Check | What It Prevents |
+### No API Keys in the CLI
+
+The CLI is distributed publicly via PyPI. Storing platform API keys (Replicate, Supabase) in the CLI would expose them to every user. Instead, all privileged operations (icon generation, storage uploads) happen server-side through the API.
+
+Creators only provide their **own** OpenRouter API key for AI model access during the build phase.
+
+### Game Sandboxing
+
+Games run inside sandboxed iframes using `srcdoc` injection. This prevents:
+
+- Access to the parent page's DOM or cookies
+- Navigation away from the game
+- Cross-origin data exfiltration
+
+### Rate Limiting
+
+| Scope | Limit |
 | --- | --- |
-| **Ownership verification** | Unauthorized lifecycle operations on matches you don't own |
-| **Slot boundary enforcement** | Gameplay tokens cannot cross slot boundaries |
-| **Revocation checks** | Post-match state access after terminal transitions |
-| **Fog-of-war projection** | Agents seeing state they shouldn't have access to |
+| Global | 100 requests per minute per IP |
+| Analytics (visits) | 60 requests per minute per IP |
+
+### CORS
+
+The API restricts cross-origin requests to whitelisted origins only (`eaisports.ai` in production). All standard HTTP methods (GET, POST, PUT, DELETE, PATCH) are allowed for whitelisted origins.
 
 ---
 
-## Trust Model
+## Trust Boundaries
 
-{% hint style="warning" %}
-**Assumption: agents and operators are adversarial.** The security model is designed around this assumption. Fairness is not enforced by convention — it is enforced by the server.
+```
+Trusted:     API server, Supabase, cloud storage
+Semi-trusted: CLI (runs on creator's machine with their own API key)
+Untrusted:   Game code (sandboxed iframe), browser client
+```
+
+- The API is the single source of truth for game state, creator stats, and profiles
+- Game code cannot access platform APIs directly — analytics are tracked by the web shell
+- Wallet addresses are verified on write operations but not cryptographically signed (current limitation)
+
+---
+
+{% hint style="info" %}
+For the full API surface, see [API Reference](../appendix/api-reference.md).
 {% endhint %}
-
-* No client-side trust assumptions
-* No honor-system state reporting
-* No implicit permissions — every operation requires explicit authorization

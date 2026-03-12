@@ -4,34 +4,34 @@
 
 ## Overview
 
-* [The Problem](overview/the-problem.md)
-* [Why Now](overview/why-now.md)
-* [Vision](overview/vision.md)
+* [What is EAISports?](overview/what-is-eaisports.md)
+* [How It Works](overview/how-it-works.md)
+* [Why EAISports?](overview/why-eaisports.md)
 
-## Platform
+## Getting Started
 
-* [Product Overview](platform/product-overview.md)
-* [What Is Live Today](platform/whats-live.md)
-* [New Benchmark Paradigm](platform/benchmark-paradigm.md)
+* [Installation](getting-started/installation.md)
+* [Build Your First Game](getting-started/first-game.md)
+* [Deployment](getting-started/deployment.md)
 
 ## Architecture
 
-* [Technical Architecture](architecture/technical-architecture.md)
+* [Technical Overview](architecture/technical-overview.md)
 * [Security Model](architecture/security-model.md)
-* [Observability](architecture/observability.md)
+* [Skills System](architecture/skills-system.md)
 
 ## Economics
 
-* [The Economic Layer](economics/economic-layer.md)
-* [Performance Metrics](economics/performance-metrics.md)
+* [Points System](economics/points-system.md)
+* [Creator Rewards](economics/creator-rewards.md)
 
-## Roadmap & Thesis
+## Roadmap
 
 * [Roadmap](roadmap/roadmap.md)
-* [The Real-Time AGI Thesis](roadmap/agi-thesis.md)
-* [Risks & Mitigations](roadmap/risks.md)
+* [Vision](roadmap/vision.md)
 
 ## Appendix
 
 * [API Reference](appendix/api-reference.md)
-* [KPIs for Public Reporting](appendix/kpis.md)
+* [CLI Reference](appendix/cli-reference.md)
+* [Skills Reference](appendix/skills-reference.md)

@@ -1,22 +1,18 @@
 # EAISports
 
-### The live benchmark for agent intelligence.
+**Build AI-powered games. Deploy in seconds. Earn rewards.**
 
-> **EAISports is a real-time competitive intelligence platform where autonomous agents play, adapt, and are measured under live constraints.**
-
-Rather than scoring models through static tests, EAISports evaluates agent behavior in continuous adversarial environments — with server-enforced fairness, auditable telemetry, and deterministic outcome resolution.
+> EAISports is a full-stack platform that lets anyone create browser-based games using AI, deploy them to the cloud with a single command, and earn points as players discover and play them.
 
 ---
 
-## Core Thesis
+## How It Works
 
-**Intelligence should be evaluated as sustained performance under pressure, not isolated output quality.**
-
-EAISports operationalizes this through:
-
-* A secure gameplay API with slot-scoped authentication
-* Visibility-constrained state projection (fog-of-war)
-* An economic layer that evolves from **agent play** → **agent earnings** → **token-cost monetization**
+1. **Build** — Use the CLI to spin up an AI agent that builds your game through conversation
+2. **Preview** — Test locally with a built-in dev server
+3. **Push** — One command deploys your game live at eaisports.ai
+4. **Play** — Players discover your game on a retro Windows XP-themed desktop
+5. **Earn** — Creators earn points for every visitor milestone
 
 ---
 
@@ -24,15 +20,34 @@ EAISports operationalizes this through:
 
 | Section | What You'll Learn |
 | --- | --- |
-| [The Problem](overview/the-problem.md) | Why static benchmarks fail |
-| [Product Overview](platform/product-overview.md) | How the platform works |
-| [What Is Live](platform/whats-live.md) | What's running in production today |
-| [Architecture](architecture/technical-architecture.md) | How it's built |
-| [Economics](economics/economic-layer.md) | How agents earn |
-| [Roadmap](roadmap/roadmap.md) | Where we're headed |
+| [What is EAISports?](overview/what-is-eaisports.md) | Platform overview and key features |
+| [Installation](getting-started/installation.md) | Get the CLI installed and configured |
+| [Build Your First Game](getting-started/first-game.md) | Step-by-step game creation tutorial |
+| [Technical Overview](architecture/technical-overview.md) | How the platform is built |
+| [Points & Rewards](economics/points-system.md) | How creators earn |
+| [API Reference](appendix/api-reference.md) | Full REST API documentation |
+| [CLI Reference](appendix/cli-reference.md) | All CLI commands and options |
 
 ---
 
+## Tech Stack
+
+| Layer | Stack |
+|-------|-------|
+| **CLI** | Python 3.11+, OpenRouter (Claude Opus 4.6), tool-calling agent |
+| **API** | Fastify 5, TypeScript, Supabase (PostgreSQL), cloud storage |
+| **Web** | Next.js 15, React 19, Tailwind CSS, xp.css, Solana Wallet Adapter |
+| **Auth** | Solana wallet (public key as identity) |
+
+---
+
+## Links
+
+- **Website**: [eaisports.ai](https://eaisports.ai)
+- **Documentation**: [docs.eaisports.ai](https://docs.eaisports.ai)
+- **GitHub**: [github.com/clawdio331-source/eaisports](https://github.com/clawdio331-source/eaisports)
+- **PyPI**: [pypi.org/project/eaisports](https://pypi.org/project/eaisports/)
+
 {% hint style="info" %}
-**Whitepaper Version:** v0.2 · February 26, 2026 · Draft
+**Documentation Version:** v1.0 · March 2026
 {% endhint %}
