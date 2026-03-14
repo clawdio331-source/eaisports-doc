@@ -23,6 +23,7 @@
 ## Economics
 
 * [Points System](economics/points-system.md)
+* [Referral System](economics/referral-system.md)
 * [Creator Rewards](economics/creator-rewards.md)
 
 ## Roadmap
