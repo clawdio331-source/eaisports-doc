@@ -11,9 +11,9 @@
 │   CLI (Python)  │────▶│   API (Fastify)   │◀────│  Web (Next.js)  │
 │                 │     │                    │     │                 │
 │ - AI agent      │     │ - Game deploy      │     │ - XP desktop    │
-│ - Game scaffold │     │ - Creator profiles │     │ - Game browser  │
-│ - Local preview │     │ - Analytics        │     │ - Game player   │
-│ - Push/deploy   │     │ - Skills registry  │     │ - Dashboard     │
+│ - Game scaffold │     │ - Auth + players   │     │ - Game browser  │
+│ - Local preview │     │ - Referrals        │     │ - Game player   │
+│ - Push/deploy   │     │ - Leaderboards     │     │ - Dashboard     │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
                               │
                         ┌─────┴──────┐
@@ -52,17 +52,20 @@ Key modules:
 | **Framework** | Fastify 5 (TypeScript) |
 | **Database** | Supabase (PostgreSQL) |
 | **Storage** | Supabase Storage (game bundles, icons) |
-| **Auth** | Wallet address header (`X-Wallet-Address`) |
+| **Auth** | Bearer JWT (`Authorization`) via wallet challenge flow; legacy `X-Wallet-Address` header still supported on older integrations |
 | **Hosting** | Railway |
 
 Route groups:
-- `/api/games` — Game CRUD, deploy, icon generation
+- `/api/auth` — Challenge and verify wallet sign-in
+- `/api/games` — Game CRUD, deploy, icon generation, leaderboards
+- `/api/player` — Play tracking, score submission, player stats
 - `/api/creators` — Creator stats and profiles
+- `/api/referral` — Referral codes, application, stats
 - `/api/analytics` — Visit tracking
 - `/api/skills` — Skills registry
 - `/` — Health check
 
-Middleware: CORS, rate limiting (100 req/min global), multipart upload (5MB limit), request logging, centralized error handling.
+Middleware: CORS, rate limiting (100 req/min global plus route-specific limits), multipart upload (5MB limit), request logging, centralized error handling.
 
 ---
 
@@ -87,13 +90,21 @@ Key pages:
 
 ## Data Model
 
-| Table | Purpose |
-| --- | --- |
-| `games` | Game metadata (slug, title, description, genre, status, icon_url) |
-| `bundles` | Game bundle records (hash, storage path, version) |
-| `creators` | Creator profiles (wallet, display_name, avatar_id, token_balance) |
-| `visits` | Per-game visitor tracking |
-| `skills` | Published skill registry |
+| Table | Key Fields | Purpose |
+| --- | --- | --- |
+| `creators` | `wallet_address` (unique), `codex_id`, `display_name`, `avatar_id` | Creator identity and profile metadata |
+| `games` | `creator_id` (FK), `slug` (unique per creator), `title`, `description`, `genre`, `skills_used` (JSONB), `thumbnail_url`, `status` | Published game metadata and lifecycle state |
+| `visits` | `game_id` (FK), `visitor_hash`, `visited_at` | Per-game visit tracking with a 24-hour dedup window per visitor |
+| `token_ledger` | `creator_id` (FK), `wallet_address`, `amount`, `reason`, `threshold_met` | Creator reward ledger with threshold tracking to prevent double rewards |
+| `game_bundles` | `game_id` (FK), `bundle_hash`, `size_bytes`, `format_version`, `storage_path` | Uploaded bundle records and storage metadata |
+| `skills` | `name` (unique), `version`, `author`, `description`, `tags` (JSONB), `downloads`, `verified`, `origin`, `bundle_url` | Published skill registry and marketplace metadata |
+| `player_points` | `wallet_address`, `game_id` (FK), `amount`, `reason`, `played_on` | Player point rewards with a unique constraint on wallet + game + date for `play_reward` |
+| `game_scores` | `game_id` (FK), `wallet_address`, `score`, `played_on` | Per-game leaderboard scores with a unique constraint on game + wallet + date; upserts keep the highest score |
+| `leaderboard_payouts` | `game_id` (FK), `payout_date`, `pool_amount`, `results` (JSONB) | Stored leaderboard payout results for each game and period |
+| `referral_codes` | `wallet_address` (unique), `code` (unique, 8-char) | Referral code lookup table |
+| `referrals` | `referrer_wallet`, `invitee_wallet` (unique) | Referral graph edges with a `CHECK` constraint preventing self-referral |
+
+Row Level Security (RLS) is enabled on all tables. The service role has full access; the anon role is read-only on published games and published skills.
 
 ---
 
