@@ -1,32 +1,49 @@
 # Points System
 
-### Play games, earn points, climb the ranks.
+### Play games, earn daily points, unlock creator milestones.
 
 ---
 
 ## How Points Work
 
-EAISports tracks **visitor milestones** for every published game. When players visit and play your games, you earn points based on engagement thresholds.
+EAISports rewards both sides of the ecosystem:
 
-Points are tracked per creator wallet and visible on both the CLI (`eaisports stats`) and the web dashboard.
+- **Players** earn points for playing games and growing the network through referrals
+- **Creators** earn milestone rewards as their games reach unique visitor thresholds
+
+Points are tied to wallet addresses and visible in the web dashboard. Creator stats are also available through the CLI with `eaisports stats`.
 
 ---
 
-## Earning Points
+## Player Earning
 
-| Action | Points | Who Earns |
+Players earn **10 points per game play per day**. The first rewarded play for a given game on a given day counts. Additional plays on the same game that day do not grant another base play reward.
+
+| Action | Reward | Who Earns |
 | --- | --- | --- |
-| Publishing a game | Awarded on first deploy | Creator |
-| Visitor milestones | Up to 50,000 pts per game | Creator |
-| Playing games | Tracked for future rewards | Player (planned) |
-
-### Visitor Milestones
-
-Creators earn points as their games reach visitor count thresholds. The more people play your game, the more you earn.
+| Playing a game | 10 points | Player |
+| Direct referral bonus (L1) | 20% of invitee play points | Referrer |
+| Second-level referral bonus (L2) | 10% of L2 invitee play points | Upstream referrer |
+| Referral invitee boost | Permanent 20% boost on all play point earnings | Invitee |
 
 {% hint style="success" %}
-**Points are cumulative.** Publishing multiple popular games compounds your total balance.
+Referral bonuses stack on top of normal play rewards. A referred player keeps their 20% boost permanently.
 {% endhint %}
+
+---
+
+## Creator Milestone Rewards
+
+Creators earn milestone rewards as their games reach unique visitor thresholds.
+
+| Unique Visitors | Reward |
+| --- | --- |
+| 100 | 500 `$EAISPORTS` |
+| 500 | 3,000 `$EAISPORTS` |
+| 1,000 | 8,000 `$EAISPORTS` |
+| 5,000 | 50,000 `$EAISPORTS` |
+
+These are **milestone rewards**. Each threshold is earned **once** when reached and is not repeated.
 
 ---
 
@@ -38,16 +55,16 @@ Creators earn points as their games reach visitor count thresholds. The more peo
 eaisports stats
 ```
 
-Returns your total games, total visitors, and points balance.
+Returns creator totals including games, visitors, and rewards earned.
 
 ### Web Dashboard
 
 Visit [eaisports.ai/dashboard](https://eaisports.ai/dashboard) and connect your Solana wallet to see:
 
-- Points balance
+- Total points
 - Per-game visitor counts
-- Per-game points earned
-- Total lifetime visitors
+- Creator milestone progress
+- Referral stats and bonus totals
 
 ---
 
@@ -56,8 +73,8 @@ Visit [eaisports.ai/dashboard](https://eaisports.ai/dashboard) and connect your 
 Points are tied to your **Solana wallet address**. The same wallet you configure in the CLI is used to track your web profile.
 
 - **Not required to play** — anyone can play games without a wallet
-- **Required to earn** — connecting a wallet enables points tracking and profile features
-- **Non-signed users see a prompt** — game end screens remind disconnected players about the rewards they're missing
+- **Required to earn** — connecting a wallet enables player rewards, referrals, and creator tracking
+- **One wallet, one identity** — points, boosts, and creator milestones are all tracked at the wallet level
 
 ---
 
@@ -65,12 +82,12 @@ Points are tied to your **Solana wallet address**. The same wallet you configure
 
 | Feature | Status |
 | --- | --- |
-| Points tracking per creator | Live |
-| Visitor milestone rewards | Live |
+| Player play rewards | Live |
+| Referral bonuses | Live |
+| Creator milestone rewards | Live |
 | Creator dashboard (CLI + Web) | Live |
-| Player rewards | Planned |
-| Token economy | Planned |
+| Leaderboard system | Live |
 
 {% hint style="info" %}
-The points system is the foundation for a future token economy. See [Creator Rewards](creator-rewards.md) for details on reward tiers and [Vision](../roadmap/vision.md) for long-term economic plans.
+See [Referral System](referral-system.md) for bonus rules, [Leaderboards](leaderboards.md) for score-based competition, and [Creator Rewards](creator-rewards.md) for the broader creator growth model.
 {% endhint %}
