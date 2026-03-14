@@ -17,6 +17,7 @@
 ## Architecture
 
 * [Technical Overview](architecture/technical-overview.md)
+* [Game SDK](architecture/game-sdk.md)
 * [Security Model](architecture/security-model.md)
 * [Skills System](architecture/skills-system.md)
 
