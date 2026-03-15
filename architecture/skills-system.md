@@ -56,6 +56,8 @@ Build a trivia quiz game with the following features:
 | `interactive-fiction` | Text-based narrative games with branching storylines |
 | `puzzle-logic` | Logic puzzles, pattern matching, brain teasers |
 | `game-ui` | Reusable UI components (menus, HUDs, leaderboards) |
+| `mobile` | Mobile-optimized game templates with touch controls |
+| `flash-game-feel` | Arcade-style games with classic flash game aesthetics |
 
 ---
 
@@ -99,5 +101,5 @@ The API caches the skills list for 5 minutes to reduce database load.
 ---
 
 {% hint style="info" %}
-For the full list of built-in skills and their specifications, see [Skills Reference](../appendix/skills-reference.md).
+For the full list of built-in skills and their specifications, see [Skills Reference](../reference/skills-reference.md).
 {% endhint %}

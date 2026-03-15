@@ -1,18 +1,30 @@
 # EAISports
 
-**Build AI-powered games. Deploy in seconds. Earn rewards.**
+**Your ChatGPT subscription is a money machine.**
 
-> EAISports is a full-stack platform that lets anyone create browser-based games using AI, deploy them to the cloud with a single command, and earn points as players discover and play them.
+> You already pay for ChatGPT. EAISports turns that subscription into a game development studio. Describe a game, watch AI build it, deploy it in one command, and earn `$EAISPORTS` tokens as players discover and play your games.
 
 ---
 
 ## How It Works
 
-1. **Build** — Use the CLI to spin up an AI agent that builds your game through conversation
-2. **Preview** — Test locally with a built-in dev server
-3. **Push** — One command deploys your game live at eaisports.ai
-4. **Play** — Players discover your game on a retro Windows XP-themed desktop
-5. **Earn** — Creators earn points for every visitor milestone
+1. **Install** — `pip install eaisports`
+2. **Connect** — Link your ChatGPT account (or any AI provider) and Solana wallet
+3. **Build** — Describe your game idea. The AI agent builds it through conversation.
+4. **Push** — One command deploys your game live at eaisports.ai
+5. **Earn** — Get tokens for every player milestone, climb leaderboards, grow your network
+
+---
+
+## Quick Start
+
+```bash
+pip install eaisports
+eaisports init        # Connect your AI + wallet
+eaisports build       # Describe your game, AI builds it
+eaisports preview     # Test locally
+eaisports push        # Deploy live — start earning
+```
 
 ---
 
@@ -20,13 +32,28 @@
 
 | Section | What You'll Learn |
 | --- | --- |
-| [What is EAISports?](overview/what-is-eaisports.md) | Platform overview and key features |
-| [Installation](getting-started/installation.md) | Get the CLI installed and configured |
-| [Build Your First Game](getting-started/first-game.md) | Step-by-step game creation tutorial |
-| [Technical Overview](architecture/technical-overview.md) | How the platform is built |
-| [Points & Rewards](economics/points-system.md) | How creators earn |
-| [API Reference](appendix/api-reference.md) | Full REST API documentation |
-| [CLI Reference](appendix/cli-reference.md) | All CLI commands and options |
+| [What is EAISports?](why-eaisports/what-is-eaisports.md) | Platform overview and the viral loop |
+| [Setup](getting-started/setup.md) | Install and configure in 2 minutes |
+| [Build Your First Game](getting-started/your-first-game.md) | From idea to live game in 5 minutes |
+| [Start Earning](getting-started/start-earning.md) | How the money flows |
+| [AI Providers](reference/ai-providers.md) | ChatGPT, OpenRouter, and 5 more options |
+| [Creator Rewards](creators/creator-rewards.md) | Milestones, tokens, and the creator flywheel |
+| [API Reference](reference/api-reference.md) | Full REST API documentation |
+| [CLI Reference](reference/cli-reference.md) | All CLI commands and options |
+
+---
+
+## Use the AI You Already Pay For
+
+| Provider | Best For |
+|----------|----------|
+| **ChatGPT (OpenAI Codex)** | Already have ChatGPT Plus or Pro? You're ready to go. |
+| **OpenRouter** | Access 100+ models (Claude, GPT, Gemini, etc.) through one API key |
+| **Nous Research** | Custom open-source models via the Nous portal |
+| **Z.AI / GLM** | GLM-family models |
+| **Kimi / Moonshot** | Moonshot AI models |
+| **MiniMax** | Global and China regions |
+| **Custom Endpoint** | Any OpenAI-compatible API you already have access to |
 
 ---
 
@@ -34,7 +61,7 @@
 
 | Layer | Stack |
 |-------|-------|
-| **CLI** | Python 3.11+, OpenRouter (Claude Opus 4.6), tool-calling agent |
+| **CLI** | Python 3.11+, multi-provider AI agent (ChatGPT, OpenRouter, +5 more), tool-calling loop |
 | **API** | Fastify 5, TypeScript, Supabase (PostgreSQL), cloud storage |
 | **Web** | Next.js 15, React 19, Tailwind CSS, xp.css, Solana Wallet Adapter |
 | **Auth** | Solana wallet (public key as identity) |
@@ -45,9 +72,4 @@
 
 - **Website**: [eaisports.ai](https://eaisports.ai)
 - **Documentation**: [docs.eaisports.ai](https://docs.eaisports.ai)
-- **GitHub**: [github.com/clawdio331-source/eaisports](https://github.com/clawdio331-source/eaisports)
 - **PyPI**: [pypi.org/project/eaisports](https://pypi.org/project/eaisports/)
-
-{% hint style="info" %}
-**Documentation Version:** v1.0 · March 2026
-{% endhint %}

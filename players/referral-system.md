@@ -22,9 +22,9 @@ Referral codes are managed through the web dashboard:
 
 Referral codes are:
 
-- **8-character alphanumeric strings**
+- **5-character hex strings** (e.g., `A1B2C`)
 - **One per wallet**
-- **Only available after you've been referred yourself or you are a creator**
+- **Available after you've been referred yourself or you are a creator**
 
 {% hint style="info" %}
 You do not need to manually request a code. If your wallet is eligible, the dashboard creates it automatically.
@@ -48,11 +48,18 @@ The platform enforces three core rules:
 
 | Participant | Bonus |
 | --- | --- |
-| Invitee | Permanent **20% boost** on all play point earnings |
-| L1 referrer | **20%** of the invitee's play points as bonus |
-| L2 referrer | **10%** of the L2 invitee's play points as bonus |
+| **Invitee** | Permanent **20% boost** on all play point earnings |
+| **L1 referrer (direct)** | **20%** of the invitee's play points as bonus |
+| **L2 referrer (upstream)** | **10%** of the L2 invitee's play points as bonus |
 
-Referral bonuses apply to **player play rewards**. They do not change leaderboard rank logic or creator milestone rewards.
+Referral bonuses apply to **player play rewards** only. They do not affect leaderboard rank logic or creator milestone rewards.
+
+### How It Compounds
+
+Say you refer 10 active players who each earn 100 points/day:
+- You earn **200 bonus points/day** (20% × 100 × 10)
+- If those 10 players each refer 5 more players earning 50 points/day, you earn an additional **250 points/day** (10% × 50 × 50)
+- Total passive income: **450 points/day** from your referral network
 
 ---
 
@@ -60,13 +67,14 @@ Referral bonuses apply to **player play rewards**. They do not change leaderboar
 
 The dashboard shows referral performance in real time:
 
-- Total referrals
+- Your referral code
+- Total referrals (L1 + L2)
 - L1 referral count
 - L2 referral count
-- Total bonus earned
+- Total bonus points earned from referrals
 
-This gives players and creators a clear view of how much network growth is contributing to their points balance.
+---
 
 {% hint style="success" %}
-Strong referral trees compound over time. An active invitee earns more than a one-time signup because their future play rewards continue to generate bonuses.
+Strong referral trees compound over time. An active invitee earns more than a one-time signup because their future play rewards continue to generate bonuses for you.
 {% endhint %}

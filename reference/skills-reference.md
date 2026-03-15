@@ -82,6 +82,43 @@ eaisports build --skill game-ui my-game
 
 ---
 
+### `mobile`
+
+**Mobile-optimized game templates with touch controls.**
+
+Best for: Games targeting phone and tablet players
+
+Features provided:
+- Touch-friendly controls and interactions
+- Responsive layouts for various screen sizes
+- Mobile performance optimizations
+- Gesture support (swipe, tap, hold)
+
+```bash
+eaisports build --skill mobile my-mobile-game
+```
+
+---
+
+### `flash-game-feel`
+
+**Arcade-style games with classic flash game aesthetics.**
+
+Best for: Retro arcade games, platformers, classic browser games
+
+Features provided:
+- Arcade-style game loop and timing
+- Retro visual aesthetics
+- High score tracking
+- Quick restart mechanics
+- Classic game feel (screen shake, hit feedback)
+
+```bash
+eaisports build --skill flash-game-feel my-arcade-game
+```
+
+---
+
 ## Creating Custom Skills
 
 ### 1. Initialize
@@ -115,6 +152,10 @@ this type of game. Include:
 - Example content structure
 ```
 
+Skills can also include:
+- `templates/` — JSX component templates
+- `references/` — Example code, schemas, assets
+
 ### 3. Test It
 
 ```bash
@@ -123,11 +164,18 @@ eaisports build --skill my-skill test-game
 
 ### 4. Publish (Optional)
 
-Share your skill with the community through the skills registry API:
+Share your skill with the community:
 
+```bash
+eaisports skills publish ~/.eaisports/skills/my-skill
 ```
-POST /api/skills/publish
-X-Wallet-Address: <your-wallet>
+
+### 5. Audit (Optional)
+
+Run a security scan on a skill before installing:
+
+```bash
+eaisports skills audit my-skill
 ```
 
 ---
@@ -165,8 +213,14 @@ eaisports skills list
 # Search for skills by keyword
 eaisports skills search "quiz"
 
+# Browse all available skills
+eaisports skills browse
+
 # View details of a specific skill
 eaisports skills info trivia
+
+# Install from registry
+eaisports skills install <skill-id>
 ```
 
 Browse published skills on the web at [eaisports.ai/skills](https://eaisports.ai/skills).

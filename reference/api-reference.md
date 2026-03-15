@@ -42,6 +42,9 @@ Read operations are public unless noted otherwise.
 | --- | --- | --- | --- |
 | `POST` | `/api/auth/challenge` | No | Request a sign-in challenge. Rate limited: 10/min per IP. |
 | `POST` | `/api/auth/verify` | No | Verify a wallet signature and return a JWT. Rate limited: 10/min per IP. |
+| `POST` | `/api/auth/device-code` | No | Create a device code for headless auth (CLI). |
+| `POST` | `/api/auth/device-code/poll` | No | Poll device code status. |
+| `POST` | `/api/auth/device-code/complete` | No | Complete device auth with signature. |
 
 ### Challenge Request
 
@@ -88,7 +91,7 @@ Read operations are public unless noted otherwise.
 | `GET` | `/api/games/:slug` | No | Get game metadata by slug. |
 | `POST` | `/api/games/deploy` | Yes | Deploy a game bundle. Multipart form data. |
 | `POST` | `/api/games/:slug/generate-icon` | Yes | Generate AI icon for a game. |
-| `DELETE` | `/api/games/:slug` | Yes | Delete or unpublish a game. Returns `409` if the game was played in the last 48 hours. |
+| `DELETE` | `/api/games/:slug` | Yes | Delete a game. Returns `409` if played in last 48 hours. |
 | `POST` | `/api/games/backfill-icons` | Yes | Batch generate icons for games without them. Rate limited: 1/min. |
 
 ### Deploy Request
@@ -97,6 +100,8 @@ Read operations are public unless noted otherwise.
 POST /api/games/deploy
 Content-Type: multipart/form-data
 Authorization: Bearer <token>
+X-Bundle-Hash: <sha256>
+X-Idempotency-Key: <uuid>
 
 Fields:
   bundle:          <file> (tar.gz, max 5MB)
@@ -239,7 +244,7 @@ Valid `avatar_id` values: `guest`, `astronaut`, `chess`, `dog`, `duck`, `guitar`
 
 | Method | Endpoint | Auth | Description |
 | --- | --- | --- | --- |
-| `GET` | `/api/referral/:wallet/code` | Yes | Get or create a referral code for a wallet. Ownership is validated. |
+| `GET` | `/api/referral/:wallet/code` | Yes | Get or create a referral code for a wallet. |
 | `POST` | `/api/referral/apply` | Yes | Apply a referral code to a wallet. |
 | `GET` | `/api/referral/:wallet/stats` | No | Get referral statistics. |
 
@@ -248,7 +253,7 @@ Valid `avatar_id` values: `guest`, `astronaut`, `chess`, `dog`, `duck`, `guitar`
 ```json
 {
   "wallet_address": "9xQeWvG816bUx9EPf5dC7t1k2L4m6n8pQ2rS3tU4vW5x",
-  "code": "AB12CD34"
+  "code": "A1B2C"
 }
 ```
 

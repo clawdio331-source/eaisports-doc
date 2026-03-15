@@ -30,12 +30,13 @@
 | Attribute | Detail |
 | --- | --- |
 | **Language** | Python 3.11+ |
-| **AI Backend** | OpenRouter API (OpenAI-compatible, Claude Opus 4.6 default) |
-| **Agent Runtime** | Tool-calling loop with file ops, terminal, browser, memory tools |
+| **AI Backend** | Multi-provider: ChatGPT (OpenAI Codex), OpenRouter, Nous, Z.AI, Kimi, MiniMax, custom endpoints |
+| **Agent Runtime** | Tool-calling loop with file ops, terminal, browser, memory, MCP tools |
 | **Session Storage** | SQLite + FTS5 per game session |
+| **Execution Backends** | Local, Docker, Modal, SSH, Daytona, Singularity |
 | **Package** | [pypi.org/project/eaisports](https://pypi.org/project/eaisports/) |
 
-The CLI is built on a fork of Hermes Agent (Nous Research) with game-building enhancements. It uses an OpenAI-compatible tool-calling agent that iterates through a build loop: the model proposes tool calls, the CLI executes them, and the results feed back into the conversation.
+The CLI is built on a fork of Hermes Agent (Nous Research) with game-building enhancements. It uses an OpenAI-compatible tool-calling agent that iterates through a build loop: the model proposes tool calls, the CLI executes them, and the results feed back into the conversation. Creators connect their own AI provider — ChatGPT Plus/Pro subscribers can use their existing subscription directly via OpenAI Codex, or choose from 6 other supported providers.
 
 Key modules:
 - `run_agent.py` — AIAgent class managing the tool-calling loop
@@ -109,5 +110,5 @@ Row Level Security (RLS) is enabled on all tables. The service role has full acc
 ---
 
 {% hint style="info" %}
-For API endpoint details, see [API Reference](../appendix/api-reference.md). For CLI commands, see [CLI Reference](../appendix/cli-reference.md).
+For API endpoint details, see [API Reference](../reference/api-reference.md). For CLI commands, see [CLI Reference](../reference/cli-reference.md). For AI provider details, see [AI Providers](../reference/ai-providers.md).
 {% endhint %}

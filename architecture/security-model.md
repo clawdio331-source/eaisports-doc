@@ -24,7 +24,7 @@ EAISports uses **Solana wallets** as the core identity layer. Protected API oper
 
 The CLI is distributed publicly via PyPI. Storing platform API keys (Replicate, Supabase) in the CLI would expose them to every user. Instead, all privileged operations (icon generation, storage uploads, score submission) happen server-side through the API.
 
-Creators only provide their **own** OpenRouter API key for AI model access during the build phase.
+Creators only provide their **own** AI provider credentials (ChatGPT, OpenRouter, etc.) for AI model access during the build phase.
 
 ### Signed Challenge Flow
 
@@ -81,5 +81,5 @@ Untrusted:    Game code (sandboxed iframe), anonymous browser clients
 ---
 
 {% hint style="info" %}
-For the full API surface, see [API Reference](../appendix/api-reference.md).
+For the full API surface, see [API Reference](../reference/api-reference.md).
 {% endhint %}

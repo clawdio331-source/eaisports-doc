@@ -59,6 +59,8 @@ Available built-in skills:
 | `interactive-fiction` | Text-based narrative games with branching storylines |
 | `puzzle-logic` | Logic puzzles, pattern matching, brain teasers |
 | `game-ui` | Reusable UI components (menus, HUDs, leaderboards) |
+| `mobile` | Mobile-optimized game templates with touch controls |
+| `flash-game-feel` | Arcade-style games with classic flash game aesthetics |
 
 List all available skills:
 
@@ -101,5 +103,5 @@ eaisports sessions browse
 {% endhint %}
 
 {% hint style="success" %}
-**Game ready?** Head to [Deployment](deployment.md) to push it live.
+**Game ready?** Head to [Deploying](../creators/deploying.md) to push it live and start earning.
 {% endhint %}

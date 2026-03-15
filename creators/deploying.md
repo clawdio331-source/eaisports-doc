@@ -1,4 +1,4 @@
-# Deployment
+# Deploying
 
 ### One command to go live.
 
@@ -12,10 +12,12 @@ eaisports push my-first-game
 
 This does several things automatically:
 
-1. **Bundles** your game's `dist/` directory into a tarball
-2. **Uploads** the bundle to the EAISports API
-3. **Generates** an AI-created icon for your game
-4. **Publishes** the game at `eaisports.ai/play/my-first-game`
+1. **Builds** your game with `npm run build`
+2. **Bundles** the `dist/` directory into a tar.gz archive
+3. **Computes** a SHA-256 hash for deduplication (skip upload if nothing changed)
+4. **Uploads** the bundle to the EAISports API with idempotency protection
+5. **Generates** an AI-created Windows XP-style icon for your game
+6. **Publishes** the game at `eaisports.ai/play/my-first-game`
 
 ---
 
@@ -36,7 +38,7 @@ Your game is immediately:
 - **Playable** at `eaisports.ai/play/your-slug`
 - **Discoverable** in the arcade browser and as a desktop icon
 - **Shareable** with a direct URL and auto-generated Open Graph image
-- **Tracked** — every visitor contributes to your creator stats
+- **Tracked** — every visitor contributes to your creator stats and milestones
 
 ---
 
@@ -53,9 +55,9 @@ This shows:
 | Metric | Description |
 | --- | --- |
 | **Total Games** | Number of games you've published |
-| **Total Visitors** | Lifetime play count across all games |
-| **Points Balance** | Points earned from visitor milestones |
-| **Per-Game Breakdown** | Visitors and points for each game |
+| **Total Visitors** | Lifetime unique visitor count across all games |
+| **Token Balance** | `$EAISPORTS` tokens earned from milestones |
+| **Per-Game Breakdown** | Visitors and tokens for each game |
 
 You can also view your stats on the web dashboard at [eaisports.ai/dashboard](https://eaisports.ai/dashboard) after connecting your wallet.
 
@@ -63,7 +65,7 @@ You can also view your stats on the web dashboard at [eaisports.ai/dashboard](ht
 
 ## Updating a Game
 
-To update an existing game, just push again:
+To update an existing game, just build and push again:
 
 ```bash
 eaisports build --resume my-first-game
@@ -71,10 +73,22 @@ eaisports build --resume my-first-game
 eaisports push my-first-game
 ```
 
-The new bundle replaces the previous version. Your visitor stats and points are preserved.
+The new bundle replaces the previous version. Your visitor stats and milestones are preserved. If the bundle hash matches the existing version, the upload is skipped.
+
+---
+
+## Deleting a Game
+
+Games can be deleted if they haven't been played in the last 48 hours:
+
+```bash
+# Via API — DELETE /api/games/:slug
+```
+
+Games with recent player activity cannot be deleted to protect leaderboard integrity.
 
 ---
 
 {% hint style="success" %}
-**Congratulations!** Your game is live. Share the link, watch your visitor count grow, and earn points for every milestone.
+**Congratulations!** Your game is live. Share the link, watch your visitor count grow, and earn tokens for every milestone.
 {% endhint %}

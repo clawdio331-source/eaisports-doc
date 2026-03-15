@@ -7,21 +7,25 @@
 ## Live Now
 
 - AI-powered game building via CLI with interactive multi-turn build loop
-- One-command deployment (`eaisports push`)
-- Skills system with 4 built-in templates (trivia, interactive fiction, puzzle, UI)
-- Skills registry with publish and discovery
+- **7 AI providers** — ChatGPT (OpenAI Codex), OpenRouter, Nous, Z.AI, Kimi, MiniMax, custom endpoints
+- One-command deployment (`eaisports push`) with hash deduplication and idempotency
+- **6 built-in skills** — trivia, interactive fiction, puzzle, UI, mobile, flash-game-feel
+- Skills registry with publish, discovery, browse, install, and audit
 - Windows XP-themed web platform with desktop, taskbar, and start menu
-- Game browser (arcade) with filtering
+- Game browser (arcade) with search, filtering, and sorting
 - Sandboxed game player with iframe isolation
 - Creator profiles with avatar selection and display names
-- Wallet-based authentication (Solana)
+- Wallet-based authentication (Solana) with signed challenge flow
 - Creator dashboard with per-game stats (CLI + Web)
-- Points system with visitor milestone rewards
-- AI-generated game icons
-- Open Graph images for social sharing
-- Visit analytics tracking
-- Session management with resume capability
-- Local preview with Vite dev server
+- Points system with visitor milestone rewards (`$EAISPORTS` tokens)
+- **Leaderboard system** with daily/weekly/all-time boards and dynamic prize pools
+- **2-level referral system** with play bonuses
+- AI-generated game icons (Windows XP style)
+- Visit analytics with 24-hour deduplication
+- Session management with resume, browse, search, export
+- Multiple execution backends (Local, Docker, Modal, SSH, Daytona, Singularity)
+- Token usage insights (`eaisports insights`)
+- Health diagnostics (`eaisports doctor`, `eaisports status`)
 
 ---
 
@@ -32,25 +36,26 @@
 - **Mobile optimization** — Touch-friendly game browser and player
 - **Multiplayer foundation** — Real-time game state for competitive play
 - **Enhanced analytics** — Play duration, completion rates, retention metrics
+- **Creator tiers** — Unlock perks based on cumulative tokens
 
 ---
 
 ## Medium-Term
 
-- **Player rewards** — Points for playing, not just creating
-- **Creator tiers** — Unlock perks based on cumulative points
 - **Token economy** — Convert points into tradeable tokens
 - **Marketplace** — Buy, sell, and trade premium skills
 - **Community features** — Comments, ratings, and game collections
+- **Cross-platform builds** — Games that can be packaged beyond the browser
+- **Tournament system** — Competitive events with prize pools
 
 ---
 
 ## Long-Term
 
-- **Autonomous game generation** — AI creates and publishes games without human intervention
-- **Cross-platform** — Mobile apps, embeddable widgets
-- **Tournament system** — Competitive events with prize pools
-- **Creator monetization** — Direct revenue from popular games
+- **Full development studio CLI** — Build games for Steam, App Store, Google Play, and other traditional distribution channels
+- **Native app packaging** — Export games as standalone desktop and mobile apps
+- **Autonomous game generation** — AI creates and publishes games with minimal human intervention
+- **Creator monetization** — Direct revenue from popular games through traditional storefronts
 
 ---
 
