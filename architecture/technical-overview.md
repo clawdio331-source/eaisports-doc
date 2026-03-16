@@ -53,7 +53,7 @@ Key modules:
 | **Framework** | Fastify 5 (TypeScript) |
 | **Database** | Supabase (PostgreSQL) |
 | **Storage** | Supabase Storage (game bundles, icons) |
-| **Auth** | Bearer JWT (`Authorization`) via wallet challenge flow; legacy `X-Wallet-Address` header still supported on older integrations |
+| **Auth** | Bearer JWT (`Authorization`) via wallet challenge flow and CLI device-code auth |
 | **Hosting** | Railway |
 
 Route groups:
@@ -76,7 +76,7 @@ Middleware: CORS, rate limiting (100 req/min global plus route-specific limits),
 | --- | --- |
 | **Framework** | Next.js 15 (React 19, TypeScript) |
 | **Styling** | Tailwind CSS 4, xp.css (Windows XP theme) |
-| **Wallet** | Solana Wallet Adapter (`@solana/wallet-adapter-react`) |
+| **Wallet** | Privy with linked Solana wallets |
 | **Windows** | react-rnd for draggable XP-style windows |
 | **Hosting** | Vercel |
 

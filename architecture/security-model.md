@@ -12,9 +12,8 @@ EAISports uses **Solana wallets** as the core identity layer. Protected API oper
 | --- | --- | --- |
 | **API Auth** | `Authorization: Bearer <token>` | Protected write operations, player actions, referrals |
 | **Wallet Sign-In** | `/api/auth/challenge` + `/api/auth/verify` | Issues JWTs valid for 7 days |
-| **Legacy Support** | `X-Wallet-Address` header (deprecated) | Older integrations only |
-| **Web Auth** | Solana Wallet Adapter + wallet signature | Dashboard access, protected user actions |
-| **CLI Auth** | Wallet address in config | Push, stats, and older creator workflows |
+| **Web Auth** | Privy access token + linked Solana wallet | Dashboard access, protected user actions |
+| **CLI Auth** | Device-code flow returning a platform JWT | Deploys and authenticated creator workflows |
 
 ---
 
@@ -76,7 +75,6 @@ Untrusted:    Game code (sandboxed iframe), anonymous browser clients
 - The API is the single source of truth for game state, player points, referrals, creator stats, and profiles
 - Game code cannot call privileged platform APIs directly; score submission is mediated by the platform shell
 - Wallet ownership is cryptographically verified for Bearer-token auth flows
-- Legacy header-based auth remains only for backward compatibility during the migration window
 
 ---
 

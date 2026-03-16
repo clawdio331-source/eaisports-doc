@@ -22,16 +22,6 @@ Tokens are obtained through the wallet challenge flow:
 
 JWTs are valid for **7 days**.
 
-Legacy integrations may still use:
-
-```
-X-Wallet-Address: <solana-public-key>
-```
-
-{% hint style="warning" %}
-`X-Wallet-Address` is deprecated and will be removed in a future release. Use the Bearer token flow for all new integrations.
-{% endhint %}
-
 Read operations are public unless noted otherwise.
 
 ---
